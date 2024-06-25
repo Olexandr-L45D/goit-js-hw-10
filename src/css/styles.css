@@ -23,3 +23,82 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #434455;
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.container {
+  width: 1440px;
+  padding: 0px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+}
+.form-container {
+  width: 360px;
+  padding: 0px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  text-align: left;
+   flex-direction: column;  
+}
+
+.input {
+  /* to form states */
+  border-radius: 2px;
+  padding: 8px;
+  width: 272px;
+  height: 40px;
+}
+.textarea {
+  border-radius: 2px;
+  padding: 8px;
+  width: 360px;
+  height: 80px;
+}
+
+  img {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    width: 360px;
+    height: 200px;
+}
+
+.form-link {
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  user-select: none;
+  list-style: none;
+}
