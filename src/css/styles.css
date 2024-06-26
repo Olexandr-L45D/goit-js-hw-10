@@ -68,13 +68,40 @@ ol {
   text-align: left;
    flex-direction: column;  
 }
-
-.input {
-  /* to form states */
+.container-clock {
+  width: 355px;
+  padding: 0px;
+  margin: 0 auto;
+  align-items: center;
+  display: block;
+}
+.input-stule {
+  /* to form states clock*/
   border-radius: 2px;
   padding: 8px;
   width: 272px;
   height: 40px;
+}
+/* .button {
+  display: block;
+} */
+.timer {
+  padding: 0px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+}
+.field {
+  width: 55px;
+  height: 72px;
+  padding: 0px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
 }
 .textarea {
   border-radius: 2px;
