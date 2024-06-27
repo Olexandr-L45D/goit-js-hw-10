@@ -5,6 +5,18 @@ import "flatpickr/dist/flatPickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
+const elementses = {
+second: document.querySelector('.clock-seconds'),
+minute: document.querySelector('.clock-minutes'),
+hour: document.querySelector('.clock-hours'),
+day: document.querySelector('.clock-days')
+};
+const currentTeme = new Date();
+let second = currentTeme.getSeconds();
+let minute = currentTeme.getMinutes();
+let hour = currentTeme.getHours();
+let day = currentTeme.getDay();
+
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -14,7 +26,7 @@ const options = {
       console.log(selectedDates[0]);
     },
   };
-let userSelectedDate = onClose() //записати значення обрано дати пысля валыдацыъ в методы onClose()
+//let userSelectedDate = onClose() //записати значення обрано дати пысля валыдацыъ в методы onClose()
 
 // flatpickr(selector, options) {
 // // metod onClose() selectedDates[0]
@@ -45,11 +57,11 @@ function convertMs(ms) {
   
   console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
   console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-  console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+  // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
-  addLeadingZero(value) {
-    padStart()
-  }
+  // addLeadingZero(value) {
+  //   padStart()
+  // }
 //   це скачав з быблыотеки
 //   {
 //     enableTime: true,
