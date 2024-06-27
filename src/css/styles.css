@@ -52,8 +52,8 @@ ol {
 }
 
 
-.container {
-  width: 1440px;
+.containers {
+  width: 400px;
   padding: 0px;
   margin: 0 auto;
   align-items: left;
@@ -68,39 +68,40 @@ ol {
   text-align: left;
    flex-direction: column;  
 }
-.container-general {
-  width: 375px;
-}
+
 .container-clock {
-  width: 370px;
+  width: 355px;
   padding: 0px;
   margin: 0 auto;
   text-align: center;
   /* align-items: left; */
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 .container-input {
   display: flex;
+  flex-direction: row;
 }
 .input-stule {
   /* to form states clock*/
   border-radius: 4px;
   padding: 8px;
-  width: 272px;
-  height: 40px;
+  width: 250px;
+  height: 33px;
 }
 .button {
 border-radius: 8px;
-padding: 8px 16px;
+padding: 13px 20px;
+margin: 5px;
 width: 75px;
-height: 40px;
+height: 46px;
 background: #cfcfcf;
 display: flex;
 flex-direction: row;
 }
 .timer {
-  padding: 0px;
-  margin: 0 auto;
+  padding: 5px;
+  margin: 5px;
   align-items: center;
   display: flex;
   text-align: center;
@@ -109,26 +110,12 @@ flex-direction: row;
 .field {
   width: 55px;
   height: 72px;
-  padding: 0px;
-  margin: 0 auto;
+  padding: 20px;
+  /* margin: 20px; */
   align-items: center;
   display: flex;
   text-align: left;
   flex-direction: column;
-}
-.textarea {
-  border-radius: 2px;
-  padding: 8px;
-  width: 360px;
-  height: 80px;
-}
-
-  img {
-    display: flex;
-    max-width: 100%;
-    height: auto;
-    width: 360px;
-    height: 200px;
 }
 
 .form-link {
