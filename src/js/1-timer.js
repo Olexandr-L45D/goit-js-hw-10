@@ -17,6 +17,11 @@ let minute = currentTeme.getMinutes();
 let hour = currentTeme.getHours();
 let day = currentTeme.getDay();
 
+elementses.second.textContent = second;
+elementses.minute.textContent = minute;
+elementses.hour.textContent = hour;
+elementses.day.textContent = arrDay[day];
+
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -28,14 +33,14 @@ const options = {
   };
 //let userSelectedDate = onClose() //записати значення обрано дати пысля валыдацыъ в методы onClose()
 
-// flatpickr(selector, options) {
-// // metod onClose() selectedDates[0]
-// if (якщо вибрав дату в минулому) {
-//     alert("Please choose a date in the future")  
-// } else {
+flatpickr(selector, options) {
+// metod onClose() selectedDates[0]
+if (day <= defaultDate ) {
+    alert("Please choose a date in the future")  
+} else {
     
-// } 
-// };
+} 
+};
 function convertMs(ms) {
     // Number of milliseconds per unit of time
     const second = 1000;
