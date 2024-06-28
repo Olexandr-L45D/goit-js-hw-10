@@ -6,22 +6,22 @@
 // import iziToast from "izitoast";
 // import "izitoast/dist/css/iziToast.min.css";
 
-// const elementses = {
-// second: document.querySelector('.clock-seconds'),
-// minute: document.querySelector('.clock-minutes'),
-// hour: document.querySelector('.clock-hours'),
-// day: document.querySelector('.clock-days')
-// };
-// const currentTeme = new Date();
-// let second = currentTeme.getSeconds();
-// let minute = currentTeme.getMinutes();
-// let hour = currentTeme.getHours();
-// let day = currentTeme.getDay();
+const elementses = {
+second: document.querySelector('.clock-seconds'),
+minute: document.querySelector('.clock-minutes'),
+hour: document.querySelector('.clock-hours'),
+day: document.querySelector('.clock-days')
+};
+const currentTeme = new Date();
+let second = currentTeme.getSeconds();
+let minute = currentTeme.getMinutes();
+let hour = currentTeme.getHours();
+let day = currentTeme.getDay();
 
-// elementses.second.textContent = second;
-// elementses.minute.textContent = minute;
-// elementses.hour.textContent = hour;
-// elementses.day.textContent = arrDay[day];
+elementses.second.textContent = second;
+elementses.minute.textContent = minute;
+elementses.hour.textContent = hour;
+elementses.day.textContent = arrDay[day];
 
 // const options = {
 //     enableTime: true,
