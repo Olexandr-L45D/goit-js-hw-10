@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */const e={second:document.querySelector(".clock-seconds"),minute:document.querySelector(".clock-minutes"),hour:document.querySelector(".clock-hours"),day:document.querySelector(".clock-days")},t=new Date;let o=t.getSeconds(),n=t.getMinutes(),c=t.getHours(),r=t.getDay();e.second.textContent=o;e.minute.textContent=n;e.hour.textContent=c;e.day.textContent=arrDay[r];
+//# sourceMappingURL=commonHelpers.js.map
