@@ -53,9 +53,10 @@ flatpickr(userSelectedDate, options)
   if (currentTeme >= userSelectedDate) {
       alert("Please choose a date in the future")  
   //передати user - alert
+  return
   }
   else {
-  return userSelectedDate
+  // return userSelectedDate
   }
 }
   if (!userSelectedDate) { 
