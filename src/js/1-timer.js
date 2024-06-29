@@ -24,7 +24,7 @@ new flatpickr("#datetime-picker", options);
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-
+const currentTemer = new Date();
 const inputClik = document.querySelector('#datetime-picker');
  inputClik.addEventListener('click', handlerButton)
 
@@ -38,6 +38,7 @@ let userSelectedDate = 1000000; // (0) = обраний час of uzer мето�
 
 const id = setInterval(() => {
  userSelectedDate -= 1000;
+//  const currentTemer = new Date();
 const currentTeme = new Date();
 let second = currentTeme.getSeconds();
 let minute = currentTeme.getMinutes();
@@ -50,14 +51,13 @@ elementses.day.textContent = day;
 
 flatpickr(userSelectedDate, options) 
 {    
-  if (currentTeme >= userSelectedDate) {
-      alert("Please choose a date in the future")  
-  //передати user - alert
-
-  }
-  else {
-   return userSelectedDate
-  }
+  // if (currentTemer >= userSelectedDate) {
+  //     alert("Please choose a date in the future")  
+  // //передати user - alert
+  // }
+  // else {
+  //  return userSelectedDate
+  // }
 }
   if (!userSelectedDate) { 
     clearInterval(id); 
@@ -79,13 +79,14 @@ function convertMs(ms) {
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
     return { days, hours, minutes, seconds };
   }
-  
+  console.log(convertMs(userSelectedDate));
  console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 //   console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 //   // console.log(convertMs(userSelectedDate)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
   // addLeadingZero(value) {
   //   padStart()
+  //   // console.log(addLeadingZero());
   // } // додаэ ноль якщо менше 2 х символы додае 0
 
 //   це скачав з быблыотеки

@@ -52,8 +52,8 @@ ol {
 }
 
 
-.containers {
-  width: 400px;
+.container {
+  width: 600px;
   padding: 0px;
   margin: 0 auto;
   align-items: left;
