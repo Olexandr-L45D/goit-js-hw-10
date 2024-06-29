@@ -22,8 +22,8 @@ const elementses = {
 document.querySelector("#datetime-picker").flatpickr(options);
 new flatpickr("#datetime-picker", options);
 
-// import iziToast from "izitoast";
-// import "izitoast/dist/css/iziToast.min.css";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 const inputClik = document.querySelector('#datetime-picker');
  inputClik.addEventListener('click', handlerButton)
@@ -32,8 +32,8 @@ function handlerButton(event) {
   flatpickr("#datetime-picker", options);
 
 };
-//       $('input[type="button"]').removeAttr('disabled');//роблю не активною
-// flatpickr(elementses, {});
+//    .removeAttr('disabled');//роблю не активною
+
 let userSelectedDate = 1000000; // (0) = обраний час of uzer метод onClose()
 
 const id = setInterval(() => {
@@ -53,10 +53,10 @@ flatpickr(userSelectedDate, options)
   if (currentTeme >= userSelectedDate) {
       alert("Please choose a date in the future")  
   //передати user - alert
-  return
+
   }
   else {
-  // return userSelectedDate
+   return userSelectedDate
   }
 }
   if (!userSelectedDate) { 
