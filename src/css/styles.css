@@ -93,10 +93,10 @@ ol {
 }
 .button {
 border-radius: 8px;
-padding: 13px 20px;
+padding: 14px 20px;
 margin: 5px;
 width: 75px;
-height: 46px;
+height: 50px;
 background: #cfcfcf;
 display: flex;
 flex-direction: row;
@@ -114,6 +114,8 @@ flex-direction: row;
   width: 55px;
   height: 72px;
   padding: 15px;
+  padding-right: 25px;
+  padding-left: 10px;
   /* margin: 0 auto; */
   align-items: center;
   text-align: left;
@@ -138,3 +140,40 @@ ul {
   user-select: none;
   list-style: none;
 }
+/* це календар через стилi
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  z-index: -10;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  z-index: 99;
+}
+
+input[type="date"]:placeholder {
+  z-index: 99;
+}
+input[type="date"]:not(.has-value):before {
+  content: attr(placeholder);
+  width: 100%;
+}
+
+input[type="date"] {
+  padding: 12px 20px;
+} */

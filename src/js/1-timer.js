@@ -1,9 +1,53 @@
 
-// import flatpickr from "flatpickr";
-// import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+// If using flatpickr in a framework, its recommended to pass the element directly
+// Otherwise, selectors are also supported
+//flatpickr("#myID", {});
+// creates multiple instances
+flatpickr(".userSelectedDate");
+// $(".selector").flatpickr(optional_config);
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+console.log(selectedDates[0]);// масив обраних дат користувачем
+  },
+};
+
+document.getElementsByClassName(".js-input").flatpickr({options});
+// document.getElementById("#datetime-picker").flatpickr();
+// $(".calendar").flatpickr(); // jQuery
+new flatpickr(HTMLElement, [options]);
 
 // import iziToast from "izitoast";
 // import "izitoast/dist/css/iziToast.min.css";
+
+const inputClik = document.querySelector('#datetime-picker');
+ inputClik.addEventListener('click', handlerButton)
+
+function handlerButton(event) {
+  flatpickr('.calendar'), {
+    // flatpickr('.text'), {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+console.log(selectedDates[0]);// масив обраних дат користувачем
+  },
+}
+};
+//   $('select[type="date"]').change(function() {
+//     if ($("#date :selected").val() == 'При датi з минулого - disabled ') {
+//       $('input[type="button"]').attr('disabled', 'disabled');
+//     } else {
+//       $('input[type="button"]').removeAttr('disabled');
+//     }
+//   });
+// }
 
 const elementses = {
 second: document.querySelector('.clock-seconds'),
@@ -11,63 +55,53 @@ minute: document.querySelector('.clock-minutes'),
 hour: document.querySelector('.clock-hours'),
 day: document.querySelector('.clock-days')
 };
+
+flatpickr(elementses, {});
+let userSelectedDate = []; // (0) = обраний час of uzer метод onClose()
+
+const id = setInterval(() => {
+ userSelectedDate -= 1000;
 const currentTeme = new Date();
 let second = currentTeme.getSeconds();
 let minute = currentTeme.getMinutes();
 let hour = currentTeme.getHours();
 let day = currentTeme.getDay();
-
 elementses.second.textContent = second;
 elementses.minute.textContent = minute;
 elementses.hour.textContent = hour;
 elementses.day.textContent = arrDay[day];
 
-const options = {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
- console.log(selectedDates[0]);// масив обраних дат користувачем
-    },
+flatpickr(userSelectedDate, options) 
+{    
+  if (currentTeme >= userSelectedDate) {
+      alert("Please choose a date in the future")  
+  //передати user - alert
   };
+}
+  if (!userSelectedDate) { 
+    clearInterval(id); 
+  }
+}, 1000);
 
-// // flatpickr(selector, options) {
-// //   onClose: function(selectedDates, dateStr, instance) {
-    
-// //  }
-// // }
-// // metod onClose() selectedDates[0] валыдуем в методы онклоз обрану дату
-// if (day <= defaultDate ) {
-//     alert("Please choose a date in the future")  
-// } else {
-    
-// } 
-// };
- let userSelectedDate = defaultDate; // в цю змынну записати значення обрано дати пысля валыдацыъ в методы onClose()
+setTimeout(()=>{
+    clearInterval(id)  
+},userSelectedDate)
 
 function convertMs(ms) {
-    // Number of milliseconds per unit of time
     const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
-  
-    // Remaining days
     const days = Math.floor(ms / day);
-    // Remaining hours
     const hours = Math.floor((ms % day) / hour);
-    // Remaining minutes
     const minutes = Math.floor(((ms % day) % hour) / minute);
-    // Remaining seconds
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-  
     return { days, hours, minutes, seconds };
   }
   
-//   console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+ console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 //   console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-//   // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+//   // console.log(convertMs(userSelectedDate)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
   // addLeadingZero(value) {
   //   padStart()
@@ -96,10 +130,32 @@ function convertMs(ms) {
 //     }]
 // });
 
-// import flatpickr from "flatpickr";
-// import "flatpickr/dist/flatpickr.min.css";
-// var flatpic = new flatpickr('.container-clock timer', {   });// не так створюэться (дивитись документацыю)
-
 // import iziToast from "izitoast";
 // import "izitoast/dist/css/iziToast.min.css";
 // var izitoast = new iziToast('.container-clock timer', {   });
+
+// приклад -schablon-функцii зворотнього вiдлiку
+// const elements = {
+//   content: document.querySelector(".js-content"),
+//   text: document.querySelector(".js-text"),
+// };
+
+// let counter = 10;
+
+// elements.text.textContent = `Залишилось ${counter} секунд`;
+
+// const id = setInterval(() => {
+//   counter -= 1;
+
+//   if (!counter) { //0 => false => !false => true
+//     clearInterval(id);
+//     elements.content.style.display = "none";
+//   }
+
+//   elements.text.textContent = `Залишилось ${counter} секунд`;
+// }, 1000);
+
+// setTimeout(()=>{
+//     clearInterval(id)
+//     elements.content.style.display = "none"
+// },counter * 1000)
