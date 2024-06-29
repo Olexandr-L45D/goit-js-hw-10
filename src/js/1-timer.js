@@ -16,7 +16,7 @@ const elementses = {
   second: document.querySelector('.clock-seconds'),
   minute: document.querySelector('.clock-minutes'),
   hour: document.querySelector('.clock-hours'),
-  day: document.querySelector('.clock-days')
+  day: document.querySelector('#days')
   };
 
 document.querySelector("#datetime-picker").flatpickr(options);
@@ -29,20 +29,12 @@ const inputClik = document.querySelector('#datetime-picker');
  inputClik.addEventListener('click', handlerButton)
 
 function handlerButton(event) {
-  flatpickr('.calendar'), {
-    // flatpickr('.text'), {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose(selectedDates) {
-console.log(selectedDates[0]);// масив обраних дат користувачем
-  },
-}
+  flatpickr("#datetime-picker", options);
+
 };
 //       $('input[type="button"]').removeAttr('disabled');//роблю не активною
 // flatpickr(elementses, {});
-let userSelectedDate = []; // (0) = обраний час of uzer метод onClose()
+let userSelectedDate = 1000000; // (0) = обраний час of uzer метод onClose()
 
 const id = setInterval(() => {
  userSelectedDate -= 1000;
@@ -54,14 +46,17 @@ let day = currentTeme.getDay();
 elementses.second.textContent = second;
 elementses.minute.textContent = minute;
 elementses.hour.textContent = hour;
-elementses.day.textContent = arrDay[day];
+elementses.day.textContent = day;
 
 flatpickr(userSelectedDate, options) 
 {    
   if (currentTeme >= userSelectedDate) {
       alert("Please choose a date in the future")  
   //передати user - alert
-  };
+  }
+  else {
+  return userSelectedDate
+  }
 }
   if (!userSelectedDate) { 
     clearInterval(id); 
@@ -70,7 +65,7 @@ flatpickr(userSelectedDate, options)
 
 setTimeout(()=>{
     clearInterval(id)  
-},userSelectedDate)
+},userSelectedDate*1000)
 
 function convertMs(ms) {
     const second = 1000;
@@ -102,18 +97,6 @@ function convertMs(ms) {
 //     altFormat: "F j, Y",
 //     dateFormat: "Y-m-d",
 // }
-// flatpickr({
-//     "plugins": [new weekSelect({})],
-//     "onChange": [function(){
-//         // extract the week number
-//         // note: "this" is bound to the flatpickr instance
-//         const weekNumber = this.selectedDates[0]
-//             ? this.config.getWeek(this.selectedDates[0])
-//             : null;
-
-//         console.log(weekNumber);
-//     }]
-// });
 
 // import iziToast from "izitoast";
 // import "izitoast/dist/css/iziToast.min.css";
