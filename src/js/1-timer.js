@@ -1,12 +1,7 @@
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-// If using flatpickr in a framework, its recommended to pass the element directly
-// Otherwise, selectors are also supported
-//flatpickr("#myID", {});
-// creates multiple instances
-flatpickr(".userSelectedDate");
-// $(".selector").flatpickr(optional_config);
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -17,10 +12,15 @@ console.log(selectedDates[0]);// масив обраних дат користу
   },
 };
 
-document.getElementsByClassName(".js-input").flatpickr({options});
-// document.getElementById("#datetime-picker").flatpickr();
-// $(".calendar").flatpickr(); // jQuery
-new flatpickr(HTMLElement, [options]);
+const elementses = {
+  second: document.querySelector('.clock-seconds'),
+  minute: document.querySelector('.clock-minutes'),
+  hour: document.querySelector('.clock-hours'),
+  day: document.querySelector('.clock-days')
+  };
+
+document.querySelector("#datetime-picker").flatpickr(options);
+new flatpickr("#datetime-picker", options);
 
 // import iziToast from "izitoast";
 // import "izitoast/dist/css/iziToast.min.css";
@@ -40,23 +40,8 @@ console.log(selectedDates[0]);// масив обраних дат користу
   },
 }
 };
-//   $('select[type="date"]').change(function() {
-//     if ($("#date :selected").val() == 'При датi з минулого - disabled ') {
-//       $('input[type="button"]').attr('disabled', 'disabled');
-//     } else {
-//       $('input[type="button"]').removeAttr('disabled');
-//     }
-//   });
-// }
-
-const elementses = {
-second: document.querySelector('.clock-seconds'),
-minute: document.querySelector('.clock-minutes'),
-hour: document.querySelector('.clock-hours'),
-day: document.querySelector('.clock-days')
-};
-
-flatpickr(elementses, {});
+//       $('input[type="button"]').removeAttr('disabled');//роблю не активною
+// flatpickr(elementses, {});
 let userSelectedDate = []; // (0) = обраний час of uzer метод onClose()
 
 const id = setInterval(() => {
