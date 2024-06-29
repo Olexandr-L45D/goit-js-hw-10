@@ -24,7 +24,7 @@ new flatpickr("#datetime-picker", options);
 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
-const currentTemer = new Date();
+
 const inputClik = document.querySelector('#datetime-picker');
  inputClik.addEventListener('click', handlerButton)
 
@@ -34,7 +34,7 @@ function handlerButton(event) {
 };
 //    .removeAttr('disabled');//роблю не активною
 
-let userSelectedDate = 1000000; // (0) = обраний час of uzer метод onClose()
+let userSelectedDate = [0]; // (0) = обраний час of uzer метод onClose()
 
 const id = setInterval(() => {
  userSelectedDate -= 1000;
@@ -51,13 +51,13 @@ elementses.day.textContent = day;
 
 flatpickr(userSelectedDate, options) 
 {    
-  // if (currentTemer >= userSelectedDate) {
-  //     alert("Please choose a date in the future")  
-  // //передати user - alert
-  // }
-  // else {
-  //  return userSelectedDate
-  // }
+  if (currentTeme >= userSelectedDate) {
+      izitoast("Please choose a date in the future")  
+  //передати user - alert
+  }
+  else {
+   return userSelectedDate
+  }
 }
   if (!userSelectedDate) { 
     clearInterval(id); 
@@ -80,52 +80,10 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds };
   }
   console.log(convertMs(userSelectedDate));
- console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-//   console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-//   // console.log(convertMs(userSelectedDate)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
   // addLeadingZero(value) {
   //   padStart()
   //   // console.log(addLeadingZero());
   // } // додаэ ноль якщо менше 2 х символы додае 0
 
-//   це скачав з быблыотеки
-//   {
-//     enableTime: true,
-//     dateFormat: "Y-m-d H:i",
-// }
-// {
-//     altInput: true,
-//     altFormat: "F j, Y",
-//     dateFormat: "Y-m-d",
-// }
-
-// import iziToast from "izitoast";
-// import "izitoast/dist/css/iziToast.min.css";
-// var izitoast = new iziToast('.container-clock timer', {   });
-
-// приклад -schablon-функцii зворотнього вiдлiку
-// const elements = {
-//   content: document.querySelector(".js-content"),
-//   text: document.querySelector(".js-text"),
-// };
-
-// let counter = 10;
-
-// elements.text.textContent = `Залишилось ${counter} секунд`;
-
-// const id = setInterval(() => {
-//   counter -= 1;
-
-//   if (!counter) { //0 => false => !false => true
-//     clearInterval(id);
-//     elements.content.style.display = "none";
-//   }
-
-//   elements.text.textContent = `Залишилось ${counter} секунд`;
-// }, 1000);
-
-// setTimeout(()=>{
-//     clearInterval(id)
-//     elements.content.style.display = "none"
-// },counter * 1000)
+  let izitoast = new iziToast('.container-clock timer', 250);

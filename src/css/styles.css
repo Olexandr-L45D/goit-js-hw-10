@@ -56,8 +56,9 @@ ol {
   width: 600px;
   padding: 0px;
   margin: 0 auto;
-  align-items: left;
   display: flex;
+  align-items: left;
+  text-align: left;
 }
 .form-container {
   width: 360px;
