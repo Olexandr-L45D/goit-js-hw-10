@@ -24,7 +24,7 @@ const options = {
      elementses.hour.textContent = hour;
      elementses.day.textContent = day;
      }, 1000);
-     userSelectedDate = selectedDates;
+    //  userSelectedDate = selectedDates;
 console.log(selectedDates[0]);// масив обраних дат користувачем
   },
 };
@@ -45,6 +45,7 @@ function handlerButton() {
 
 }; 
 
+let differens = (options.selectedDates - userSelectedDate)/1000;
 function convertMs(ms) {
     const second = 1000;
     const minute = second * 60;
@@ -57,7 +58,7 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds };
   }
   console.log(convertMs(userSelectedDate));
-  // console.log(convertMs(Number.elementses))
+  console.log(convertMs(differens))
   
  //    .removeAttr('disabled');//роблю не активною
   // addLeadingZero(value) {
