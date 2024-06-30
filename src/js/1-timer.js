@@ -28,12 +28,13 @@ const elementses = {
 const inputClik = document.querySelector('#datetime-picker');
  inputClik.addEventListener('click', handlerButton)
 
-function handlerButton() {
+function handlerButton(event) {
   flatpickr("#datetime-picker", options);
+  console.log(convertMs(elementses[event.target.text.value]))
+}; 
 
-};
-
-let userSelectedDate = [0]; // (0) = обраний час of uzer метод onClose()
+ let userSelectedDate = Array.elementses; // (0) = обраний час of uzer метод onClose()
+// let userSelectedDate = Document.options.selectedDates; // (0) = обраний час of uzer метод onClose()
 
 const id = setInterval(() => {
  userSelectedDate -= 1000;
@@ -60,7 +61,7 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds };
   }
   console.log(convertMs(handlerButton()));
-  console.log(convertMs(elementses))
+  // console.log(convertMs(Number.elementses))
   
  //    .removeAttr('disabled');//роблю не активною
   // addLeadingZero(value) {
