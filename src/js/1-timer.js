@@ -5,12 +5,26 @@ import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
+let userSelectedDate = new Date();
+
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    const id = setInterval(() => {
+      const currentTeme = new Date();
+     let second = currentTeme.getSeconds();
+     let minute = currentTeme.getMinutes();
+     let hour = currentTeme.getHours();
+     let day = currentTeme.getDay();
+     elementses.second.textContent = second;
+     elementses.minute.textContent = minute;
+     elementses.hour.textContent = hour;
+     elementses.day.textContent = day;
+     }, 1000);
+     userSelectedDate = selectedDates;
 console.log(selectedDates[0]);// масив обраних дат користувачем
   },
 };
@@ -22,32 +36,14 @@ const elementses = {
   day: document.querySelector('#days')
   };
 
-  document.querySelector("#datetime-picker").flatpickr(options);
-  new flatpickr("#datetime-picker", options);
+   flatpickr("#datetime-picker", options);
+  
+const butonClik = document.querySelector('.button');
+butonClik.addEventListener('click', handlerButton)
 
-const inputClik = document.querySelector('#datetime-picker');
- inputClik.addEventListener('click', handlerButton)
+function handlerButton() {
 
-function handlerButton(event) {
-  flatpickr("#datetime-picker", options);
-  console.log(convertMs(elementses[event.target.text.value]))
 }; 
-
- let userSelectedDate = Array.elementses; // (0) = обраний час of uzer метод onClose()
-// let userSelectedDate = Document.options.selectedDates; // (0) = обраний час of uzer метод onClose()
-
-const id = setInterval(() => {
- userSelectedDate -= 1000;
- const currentTeme = new Date();
-let second = currentTeme.getSeconds();
-let minute = currentTeme.getMinutes();
-let hour = currentTeme.getHours();
-let day = currentTeme.getDay();
-elementses.second.textContent = second;
-elementses.minute.textContent = minute;
-elementses.hour.textContent = hour;
-elementses.day.textContent = day;
-}, 1000);
 
 function convertMs(ms) {
     const second = 1000;
@@ -60,7 +56,7 @@ function convertMs(ms) {
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
     return { days, hours, minutes, seconds };
   }
-  console.log(convertMs(handlerButton()));
+  console.log(convertMs(userSelectedDate));
   // console.log(convertMs(Number.elementses))
   
  //    .removeAttr('disabled');//роблю не активною
