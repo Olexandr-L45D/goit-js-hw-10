@@ -20,8 +20,8 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    
-    if (selectedDates <= new Date()) 
+    const selectedDate = selectedDates[0];
+    if (selectedDate <= new Date()) 
       {
         iziToast.error({
             title: 'Error',
@@ -29,7 +29,7 @@ const options = {
         });
         startButt.disabled = true;
     } else {
-        userSelectedDate = selectedDates;
+        userSelectedDate = selectedDate;
         startButt.disabled = false;
     }
 },

@@ -17,8 +17,7 @@ form.addEventListener('submit', (event) => {
   message: `❌ Rejected promise in ${delay}ms`
 });
 }) });
-// .finally(() => console.log(delay)); // in ${delay}ms`
-//   });
+
 function cretPromis(delay, states) {
   return new Promise((resolve, reject) => {
       setTimeout(() => {
