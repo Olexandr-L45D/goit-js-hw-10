@@ -4,30 +4,31 @@ import "izitoast/dist/css/iziToast.min.css";
 
  const form = document.querySelector('.form');
 
-form.addEventListener('submit', function (event, delay) {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const isSuccess = true;
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (isSuccess) {
-      resolve(`✅ Fulfilled promise in ${delay}ms`);
-    } else {
-      reject(`❌ Rejected promise in ${delay}ms` );
-    }
-  }, 1000);
+    const delay = parseInt(form.elements.delay.value)
+    const states = form.elements.state.value;
+    cretPromis(delay, states)
+.then(delay => {iziToast.success ({title: 'Success', 
+  message: `✅ Fulfilled promise in ${delay}ms`
 });
-
-promise
-  .then(`✅ Fulfilled promise in ${delay}ms`) // `✅ Fulfilled promise in ${delay}ms`
-  .catch((error) => console.log(`❌ Rejected promise in ${delay}ms`)) // `❌ Rejected promise in ${delay}ms`
-  .finally(() => console.log(delay)); // in ${delay}ms`
+})
+.catch(delay => {iziToast.error ({title: 'Error', 
+  message: `❌ Rejected promise in ${delay}ms`
+});
+}) });
+// .finally(() => console.log(delay)); // in ${delay}ms`
+//   });
+function cretPromis(delay, states) {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (states === 'fulfilled') {
+          resolve(delay);
+        } else {
+          reject(delay);
+        }
+      }, delay);
     });
-
-
-// form.addEventListener('input', function (event) {
-//     if (event.target.name === 'delay' ) {
-//          return event.target.value.trim();
-//     };
-// });
+}
 
 
